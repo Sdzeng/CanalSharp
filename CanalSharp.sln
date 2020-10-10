@@ -17,7 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 src", "02 src", "{4B78B7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 sample", "04 sample", "{A4650FA0-4725-4956-90D3-F462F3C7474F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CanalSharp.Protocol", "src\CanalSharp.Protocol\CanalSharp.Protocol.csproj", "{51D2BEAC-0981-4CBC-BAF6-EBA840A0B888}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CanalSharp.UnitTest", "test\CanalSharp.UnitTest\CanalSharp.UnitTest.csproj", "{1DFD44A5-2020-444F-B229-C5A6320A8DE0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CanalSharp", "src\CanalSharp\CanalSharp.csproj", "{25BBA486-B374-4466-A565-507171898FBF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,16 +27,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{51D2BEAC-0981-4CBC-BAF6-EBA840A0B888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{51D2BEAC-0981-4CBC-BAF6-EBA840A0B888}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{51D2BEAC-0981-4CBC-BAF6-EBA840A0B888}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{51D2BEAC-0981-4CBC-BAF6-EBA840A0B888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DFD44A5-2020-444F-B229-C5A6320A8DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DFD44A5-2020-444F-B229-C5A6320A8DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DFD44A5-2020-444F-B229-C5A6320A8DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DFD44A5-2020-444F-B229-C5A6320A8DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25BBA486-B374-4466-A565-507171898FBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25BBA486-B374-4466-A565-507171898FBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25BBA486-B374-4466-A565-507171898FBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25BBA486-B374-4466-A565-507171898FBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{51D2BEAC-0981-4CBC-BAF6-EBA840A0B888} = {4B78B79B-7EBE-405E-9BE3-3A59FFAD1910}
+		{1DFD44A5-2020-444F-B229-C5A6320A8DE0} = {BD70CDB7-94E9-4621-B702-DC04DB9D59EF}
+		{25BBA486-B374-4466-A565-507171898FBF} = {4B78B79B-7EBE-405E-9BE3-3A59FFAD1910}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FD9B9146-8418-4F80-A666-9B47BE4F9C9C}
