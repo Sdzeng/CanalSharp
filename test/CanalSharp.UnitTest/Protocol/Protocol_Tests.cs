@@ -32,7 +32,7 @@ namespace CanalSharp.UnitTest.Protocol
 
             await HandShake_ShouldBe_Success();
 
-            var ca = new ClientAuth()
+            var data = new ClientAuth()
             {
                 Username = Settings.UserName,
                 Password = ByteString.CopyFromUtf8(Settings.Password),
@@ -40,13 +40,64 @@ namespace CanalSharp.UnitTest.Protocol
                 NetWriteTimeout = 60 * 60 * 1000
             };
 
-            var authPacket = new Packet()
+            var packet = new Packet()
             {
                 Type = PacketType.Clientauthentication,
-                Body = ca.ToByteString()
+                Body = data.ToByteString()
             }.ToByteArray();
 
-            await _client.WritePacketAsync(authPacket);
+            await _client.WritePacketAsync(packet);
+            var p = await _client.ReadPacketAsync();
+            p.ValidateAck();
+        }
+
+        [Fact]
+        public async Task Subscribe_ShouldBe_Success()
+        {
+            InitClient();
+            await HandShake_ShouldBe_Success();
+            await Auth_ShouldBe_Success();
+
+            var data = new Sub()
+            {
+                Destination = Settings.Destination,
+                ClientId = Settings.ClientId,
+                Filter = string.IsNullOrEmpty(Settings.Filter) ? ".*\\..*" : Settings.Filter
+            };
+
+            var pack = new Packet()
+            {
+                Type = PacketType.Subscription,
+                Body = data.ToByteString()
+            }.ToByteArray();
+
+            await _client.WritePacketAsync(pack);
+            var p = await _client.ReadPacketAsync();
+            p.ValidateAck();
+        }
+
+        [Fact]
+        public async Task UnSubscribe_ShouldBe_Success()
+        {
+            InitClient();
+            await HandShake_ShouldBe_Success();
+            await Auth_ShouldBe_Success();
+            await Subscribe_ShouldBe_Success();
+
+            var data = new Unsub()
+            {
+                Destination = Settings.Destination,
+                ClientId = Settings.ClientId,
+                Filter = string.IsNullOrEmpty(Settings.Filter) ? ".*\\..*" : Settings.Filter
+            };
+
+            var pack = new Packet()
+            {
+                Type = PacketType.Subscription,
+                Body = data.ToByteString()
+            }.ToByteArray();
+
+            await _client.WritePacketAsync(pack);
             var p = await _client.ReadPacketAsync();
             p.ValidateAck();
         }
